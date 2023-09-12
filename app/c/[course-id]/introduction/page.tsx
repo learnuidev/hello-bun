@@ -2,10 +2,10 @@
 
 import { Editor } from "@/components/Editor";
 
-export default function Home() {
+export default function Introduction() {
   return (
     <main className=''>
-      <Editor content="" id="test" />
+      <Editor content="" id="bun-intro" />
     </main>
   )
 }
