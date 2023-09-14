@@ -23,6 +23,8 @@ import React, {
     Image as ImageIcon,
     Code,
     CheckSquare,
+    Star,
+    SparkleIcon,
   } from "lucide-react";
   // import { LoadingCircle } from "@/ui/icons";
   // import { toast } from "sonner";
@@ -75,44 +77,49 @@ import React, {
   const getSuggestionItems = ({ query }: { query: string }) => {
     return [
       {
-        title: "Continue writing",
-        description: "Use AI to expand your thoughts.",
+        title: "Summarize",
+        description: "Use AI to summarize text",
         searchTerms: ["gpt"],
         // icon: <Magic className="w-7" />,
-        icon: <Text size={18} />,
-      },
-      {
-        title: "Send Feedback",
-        description: "Let us know how we can improve.",
-        icon: <MessageSquarePlus size={18} />,
+        icon: <SparkleIcon size={18} />,
         command: ({ editor, range }: CommandProps) => {
           editor.chain().focus().deleteRange(range).run();
-          window.open("/feedback", "_blank");
+          window.open("https://www.linkedin.com/in/vishalgautamm/", "_blank");
         },
       },
       {
-        title: "Text",
-        description: "Just start typing with plain text.",
-        searchTerms: ["p", "paragraph"],
-        icon: <Text size={18} />,
+        title: "Extract Data",
+        description: "Use AI to transform text into table",
+        searchTerms: ["gpt"],
+        // icon: <Magic className="w-7" />,
+        icon: <SparkleIcon size={18} />,
         command: ({ editor, range }: CommandProps) => {
-          editor
-            .chain()
-            .focus()
-            .deleteRange(range)
-            .toggleNode("paragraph", "paragraph")
-            .run();
+          editor.chain().focus().deleteRange(range).run();
+          window.open("https://www.linkedin.com/in/vishalgautamm/", "_blank");
         },
       },
       {
-        title: "To-do List",
-        description: "Track tasks with a to-do list.",
-        searchTerms: ["todo", "task", "list", "check", "checkbox"],
-        icon: <CheckSquare size={18} />,
+        title: "Extract Instructions",
+        description: "Use AI to extact instructions from text",
+        searchTerms: ["gpt"],
+        // icon: <Magic className="w-7" />,
+        icon: <SparkleIcon size={18} />,
         command: ({ editor, range }: CommandProps) => {
-          editor.chain().focus().deleteRange(range).toggleTaskList().run();
+          editor.chain().focus().deleteRange(range).run();
+          window.open("https://www.linkedin.com/in/vishalgautamm/", "_blank");
         },
       },
+      // {
+      //   title: "Generate Table",
+      //   description: "Use AI to transform raw data into table insights",
+      //   searchTerms: ["gpt"],
+      //   // icon: <Magic className="w-7" />,
+      //   icon: <SparkleIcon size={18} />,
+      //   command: ({ editor, range }: CommandProps) => {
+      //     editor.chain().focus().deleteRange(range).run();
+      //     window.open("https://www.linkedin.com/in/vishalgautamm/", "_blank");
+      //   },
+      // },
       {
         title: "Heading 1",
         description: "Big section heading.",
@@ -155,6 +162,39 @@ import React, {
             .run();
         },
       },
+      // {
+      //   title: "Send Feedback",
+      //   description: "Let us know how we can improve.",
+      //   icon: <MessageSquarePlus size={18} />,
+      //   command: ({ editor, range }: CommandProps) => {
+      //     editor.chain().focus().deleteRange(range).run();
+      //     window.open("/feedback", "_blank");
+      //   },
+      // },
+      {
+        title: "Text",
+        description: "Just start typing with plain text.",
+        searchTerms: ["p", "paragraph"],
+        icon: <Text size={18} />,
+        command: ({ editor, range }: CommandProps) => {
+          editor
+            .chain()
+            .focus()
+            .deleteRange(range)
+            .toggleNode("paragraph", "paragraph")
+            .run();
+        },
+      },
+      {
+        title: "To-do List",
+        description: "Track tasks with a to-do list.",
+        searchTerms: ["todo", "task", "list", "check", "checkbox"],
+        icon: <CheckSquare size={18} />,
+        command: ({ editor, range }: CommandProps) => {
+          editor.chain().focus().deleteRange(range).toggleTaskList().run();
+        },
+      },
+ 
       {
         title: "Bullet List",
         description: "Create a simple bullet list.",

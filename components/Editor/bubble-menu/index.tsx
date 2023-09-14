@@ -14,12 +14,14 @@ import { NodeSelector } from "./node-selector";
 import { ColorSelector } from "./color-selector";
 import { LinkSelector } from "./link-selector";
 import { cn } from "@/lib/utils";
+import { AISelector } from "./ai-selector";
 
 export interface BubbleMenuItem {
   name: string;
   isActive: () => boolean;
   command: () => void;
   icon: typeof BoldIcon;
+  description?: string
 }
 
 type EditorBubbleMenuProps = Omit<BubbleMenuProps, "children">;
@@ -27,18 +29,18 @@ type EditorBubbleMenuProps = Omit<BubbleMenuProps, "children">;
 // TODO: Fix Type for this component
 export const EditorBubbleMenu: FC<EditorBubbleMenuProps> = (props: any) => {
   const items: BubbleMenuItem[] = [
-    {
-      name: "bold",
-      isActive: () => props.editor.isActive("bold"),
-      command: () => props.editor.chain().focus().toggleBold().run(),
-      icon: BoldIcon,
-    },
-    {
-      name: "italic",
-      isActive: () => props.editor.isActive("italic"),
-      command: () => props.editor.chain().focus().toggleItalic().run(),
-      icon: ItalicIcon,
-    },
+    // {
+    //   name: "bold",
+    //   isActive: () => props.editor.isActive("bold"),
+    //   command: () => props.editor.chain().focus().toggleBold().run(),
+    //   icon: BoldIcon,
+    // },
+    // {
+    //   name: "italic",
+    //   isActive: () => props.editor.isActive("italic"),
+    //   command: () => props.editor.chain().focus().toggleItalic().run(),
+    //   icon: ItalicIcon,
+    // },
     {
       name: "underline",
       isActive: () => props.editor.isActive("underline"),
@@ -51,24 +53,24 @@ export const EditorBubbleMenu: FC<EditorBubbleMenuProps> = (props: any) => {
       command: () => props.editor.chain().focus().toggleStrike().run(),
       icon: StrikethroughIcon,
     },
-    {
-      name: "align-left",
-      isActive: () => props.editor.isActive({ textAlign: 'left' }),
-      command: () => props.editor.chain().focus().setTextAlign('left').run(),
-      icon: AlignLeft,
-    },
+    // {
+    //   name: "align-left",
+    //   isActive: () => props.editor.isActive({ textAlign: 'left' }),
+    //   command: () => props.editor.chain().focus().setTextAlign('left').run(),
+    //   icon: AlignLeft,
+    // },
     {
       name: "align-center",
       isActive: () => props.editor.isActive({ textAlign: 'center' }),
       command: () => props.editor.chain().focus().setTextAlign('center').run(),
       icon: AlignCenter,
     },
-    {
-      name: "align-right",
-      isActive: () => props.editor.isActive({ textAlign: 'right' }),
-      command: () => props.editor.chain().focus().setTextAlign('right').run(),
-      icon: AlignRight,
-    },
+    // {
+    //   name: "align-right",
+    //   isActive: () => props.editor.isActive({ textAlign: 'right' }),
+    //   command: () => props.editor.chain().focus().setTextAlign('right').run(),
+    //   icon: AlignRight,
+    // },
     {
       name: "code",
       isActive: () => props.editor.isActive("code"),
@@ -103,6 +105,7 @@ export const EditorBubbleMenu: FC<EditorBubbleMenuProps> = (props: any) => {
   };
 
   const [isNodeSelectorOpen, setIsNodeSelectorOpen] = useState(false);
+  const [isAISelectorOpen, setIsAISelectorOpen] = useState(false);
   const [isColorSelectorOpen, setIsColorSelectorOpen] = useState(false);
   const [isLinkSelectorOpen, setIsLinkSelectorOpen] = useState(false);
 
@@ -118,6 +121,17 @@ export const EditorBubbleMenu: FC<EditorBubbleMenuProps> = (props: any) => {
           setIsNodeSelectorOpen(!isNodeSelectorOpen);
           setIsColorSelectorOpen(false);
           setIsLinkSelectorOpen(false);
+          setIsAISelectorOpen(false)
+        }}
+      />
+      <AISelector
+        editor={props.editor}
+        isOpen={isAISelectorOpen}
+        setIsOpen={() => {
+          setIsAISelectorOpen(!isAISelectorOpen);
+          setIsColorSelectorOpen(false);
+          setIsNodeSelectorOpen(false);
+          setIsLinkSelectorOpen(false);
         }}
       />
       <LinkSelector
@@ -127,6 +141,7 @@ export const EditorBubbleMenu: FC<EditorBubbleMenuProps> = (props: any) => {
           setIsLinkSelectorOpen(!isLinkSelectorOpen);
           setIsColorSelectorOpen(false);
           setIsNodeSelectorOpen(false);
+          setIsAISelectorOpen(false)
         }}
       />
       <div className="flex">
