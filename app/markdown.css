@@ -1,0 +1,8 @@
+.whitespace-pre-wrap > table {
+  width: 100%;
+  border: 1px solid gray;
+
+  & > tbody tr td {
+    text-align: center;
+  }
+}

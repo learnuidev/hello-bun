@@ -13,12 +13,15 @@ import Highlight from "@tiptap/extension-highlight";
 import SlashCommand from "./slash-command";
 import { InputRule } from "@tiptap/core";
 import { TextAlign } from '@tiptap/extension-text-align'
+// import { Markdown } from 'tiptap-markdown';
 // import UploadImagesPlugin from "@/ui/editor/plugins/upload-images";
 // import UpdatedImage from "./updated-image";
 // import CustomKeymap from "./custom-keymap";
 // import DragAndDrop from "./drag-and-drop";
 
 export const defaultExtensions = [
+
+
   StarterKit.configure({
     bulletList: {
       HTMLAttributes: {

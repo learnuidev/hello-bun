@@ -14,6 +14,7 @@ export const Editor = ({ content, id }: {
 
 
 
+  
   const editor = useEditor({
     autofocus: true,
     extensions: [
@@ -80,6 +81,7 @@ export const Editor = ({ content, id }: {
       });
     },
     onError: (err) => {
+      return null
       // toast.error(err.message);
       // if (err.message === "You have reached your request limit for the day.") {
       //   va.track("Rate Limit Reached");

@@ -6,6 +6,8 @@
 
 /* @import "editor.css"; */
 @import "tiptap.css";
+@import "markdown.css";
+/* @import "katex.min.css"; */
 
 @layer base {
   :root {
