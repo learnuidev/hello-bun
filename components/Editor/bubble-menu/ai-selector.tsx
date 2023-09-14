@@ -13,6 +13,7 @@ import {
   StickyNoteIcon,
   StarIcon,
   DatabaseZapIcon,
+  Sparkles,
 } from "lucide-react";
 import * as Popover from "@radix-ui/react-popover";
 import { Dispatch, FC, SetStateAction } from "react";
@@ -49,7 +50,7 @@ export const AISelector: FC<NodeSelectorProps> = ({
     },
     {
       name: "Generate Insights",
-      icon: StarIcon,
+      icon: Sparkles,
       command: () =>
         editor.chain().focus().toggleNode("paragraph", "paragraph").run(),
       // I feel like there has to be a more efficient way to do this – feel free to PR if you know how!
