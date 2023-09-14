@@ -1,8 +1,15 @@
 /* Tip Tap Editor */
 
 .ProseMirror {
-  margin: 0 8px;
+  margin: 2rem 16rem;
 }
+
+@media screen and (max-width: 768px) {
+  .ProseMirror {
+    margin: 0.5rem 1rem;
+  }
+}
+
 .tiptap h1 {
   font-size: 1.8rem;
   font-weight: 900;
